@@ -161,3 +161,22 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+
+###############
+## my ignore lists
+###############
+frontend/runtime
+backend/runtime
+frontend/www/index.php
+backend/www/index.php
+frontend/www/assets
+backend/www/assets
+frontend/config/main_local.php
+frontend/config/params_local.php
+console/config/main_local.php
+console/config/params_local.php
+common/config/main_local.php
+common/config/params_local.php
+backend/config/main_local.php
+backend/config/params_local.php
