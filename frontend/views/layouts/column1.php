@@ -1,0 +1,45 @@
+<?php $this->beginContent('/layouts/main'); ?>
+<div class="site-content" >
+<?php echo $content; ?>
+
+	<footer class="site-footer" id="site-footer">
+		<h2 class="epsilon">创建和维护</h2>
+		<ul>
+			<li><a href="<?php echo Yii::app()->request->hostInfo; ?>">jobkhan Cao</a></li>
+		</ul>
+
+		<h2 class="epsilon">个人简介</h2>
+		<ul>
+			<li><a href="<?php echo Yii::app()->createUrl('/profile/index'); ?>">曹庭汉</a></li>
+		</ul>
+	
+		<h2 class="epsilon">电子邮件</h2>
+			<ul>
+				<li><?php echo CHtml::mailto('jobhancao@yahoo.com.cn', 'jobhancao@yahoo.com.cn'); ?></li>
+			</ul>
+
+		<h2 class="epsilon">现居地</h2>
+		<ul class="mbd">
+			<li>北京 朝阳</li>
+		</ul>
+	
+		<div>
+			<?php echo CHtml::link("Straysh's Blog", Yii::app()->request->hostinfo)?>
+			|
+			<?php echo CHtml::mailto('给我留言', 'jobhancao@yahoo.com.cn'); ?>
+			|
+			<div class="langSet" onclick="return false;" onmouseover="$(this).addClass('btm_link')" onmouseout="$(this).removeClass('btm_link')">
+				<a href="?">Language<span class="btn_arr"><span><em>◆</em></span></span></a>
+				<div class="subNav" style="display:none;">
+					<p><a href="?lang=zh_CN " data-flag="3">简体中文</a></p>
+					<p class="second"><a href="?lang=zh_CHT" data-flag="1">繁體中文</a></p>
+					<p class="last"><a href="?lang=en_US" data-flag="2">English</a></p>
+        			<p></p>
+        		</div>
+        	</div>
+        	<br/>
+        	<span>Copyright © 2012 - 2013 Straysh. All Rights Reserved</span>
+		</div>
+	</footer>
+</div>
+<?php $this->endContent(); ?>

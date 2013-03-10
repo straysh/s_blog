@@ -8,7 +8,7 @@ Yii::setPathOfAlias('backend',dirname(__FILE__).'/../');
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'个人博客测试版',
+	'name'=>'Straysh\' Blog',
 		
 	// autoloading model and component classes
 	'import'=>array(

@@ -1,5 +1,5 @@
 <?php
-class SiteController extends Controller
+class ProfileController extends Controller
 {
 	public $layout='column1';
 	

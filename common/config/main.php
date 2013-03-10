@@ -8,7 +8,7 @@ Yii::setPathOfAlias('common',dirname(__FILE__).'/../');
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'个人博客测试版',
+	'name'=>"Straysh's Blog",
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -47,12 +47,13 @@ return array(
 			'errorAction'=>'site/error',
 		),
 		'urlManager'=>array(
-				'urlFormat'=>'get',
-				/* 			'rules'=>array(
-				 'post/<id:\d+>/<title:.*?>'=>'post/view',
-						'posts/<tag:.*?>'=>'post/index',
-						'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-				),*/
+			'urlFormat'=>'path',
+			'showScriptName'=>false,
+			'rules'=>array(
+			 'post/<id:\d+>/<title:.*?>'=>'post/view',
+				'posts/<tag:.*?>'=>'post/index',
+				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+			),
 		),
 	
 		'log'=>array(
