@@ -14,14 +14,21 @@
 		</ul>
 	
 		<h2 class="epsilon">电子邮件</h2>
-			<ul>
-				<li><?php echo CHtml::mailto('jobhancao@yahoo.com.cn', 'jobhancao@yahoo.com.cn'); ?></li>
-			</ul>
+		<ul>
+			<li><?php echo CHtml::mailto('jobhancao@yahoo.com.cn', 'jobhancao@yahoo.com.cn'); ?></li>
+		</ul>
 
 		<h2 class="epsilon">现居地</h2>
 		<ul class="mbd">
 			<li>北京 朝阳</li>
 		</ul>
+		
+		<h2 class="epsilon">友情链接</h2>
+		<p>
+			<?php echo CHtml::link('刘强', 'http://joke568.github.com');?>
+			|
+			<?php echo CHtml::link('阳光BLOG', 'http://www.itshipin.com/blog/');?>
+		</p>
 	
 		<div>
 			<?php echo CHtml::link("Straysh's Blog", Yii::app()->request->hostinfo)?>
