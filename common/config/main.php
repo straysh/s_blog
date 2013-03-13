@@ -3,6 +3,7 @@
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 Yii::setPathOfAlias('common',dirname(__FILE__).'/../');
+Yii::setPathOfAlias('oututils',dirname(__FILE__).'/../../../YiiOutUtils/');
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
@@ -16,6 +17,7 @@ return array(
 	// autoloading model and component classes
 	'import'=>array(
 		'common.models.*',
+		'common.qmodels.*',
 		'common.components.*',
 	),
 

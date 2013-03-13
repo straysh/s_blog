@@ -18,7 +18,7 @@ Yii::app()->getClientScript()->registerCoreScript("jquery");
 
 <body>
 <nav class="site-navigation">
-	<div class="build-date">Last Updated: Wed Sep 26 23:54:26 -0700 2012</div>
+	<div class="build-date">Last Updated: <?php echo date('r');?></div>
 	<ul>
 		<li>aaa</li>
 	</ul>
