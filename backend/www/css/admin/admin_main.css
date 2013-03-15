@@ -1,0 +1,27 @@
+#left-sidebar
+{
+	padding: 5px 5px 20px 5px;
+}
+
+#admin_treeview
+{
+	height:auto!important; 
+	height:400px;min-height:400px;
+}
+
+#admin_treeview.treeplus ul
+{
+	background-color: #EFFDFF;
+}
+#mdulenav {height: 53px; width: 400px;}
+#mdulenav li
+{
+	display: inline; height:59px;padding: 2px; margin: 15px;
+}
+/*
+#mdulenav .act{background: url(/images/sys/nav/nav_act.png) no-repeat center;}
+
+#mdulenav .film{background: url(/images/sys/nav/nav_film.png) no-repeat center;}
+#mdulenav .misc{background: url(/images/sys/nav/nav_misc.png) no-repeat center;}
+#mdulenav .labs{background: url(/images/sys/nav/nav_labs.png) no-repeat center;}
+*/
