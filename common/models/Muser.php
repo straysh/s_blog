@@ -14,7 +14,7 @@
  * @property integer $is_actived
  * @property string $active_code
  */
-class Muser extends CActiveRecord
+class Muser extends BaseAR
 {
 	/**
 	 * Returns the static model of the specified AR class.

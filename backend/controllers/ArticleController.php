@@ -70,11 +70,16 @@ class ArticleController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['article']))
+		if(isset($_POST['Article']))
 		{
-			$model->attributes=$_POST['article'];
+			$model->attributes=$_POST['Article'];
+			$model->uid = Yii::app()->user->id;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
+			else{
+				var_dump($model->errors);
+				Yii::app()->end();
+			}
 		}
 
 		$this->render('create',array(

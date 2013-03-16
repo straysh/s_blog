@@ -27,7 +27,7 @@
 	<div id="header" style="-moz-user-select:-moz-none; -webkit-user-select:none;" onselectstart="return false;">
 		<div style="height:53px;">
 		<div id="logo" style="width:350px; float:left;">
-			"测试"
+			<?php echo Yii::app()->name;?>
 		</div>
 		</div>
 	</div><!-- header -->

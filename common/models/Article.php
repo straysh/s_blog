@@ -15,7 +15,7 @@
  * @property string $m_time
  * @property string $c_time
  */
-class Article extends CActiveRecord
+class Article extends BaseAR
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -70,15 +70,15 @@ class Article extends CActiveRecord
 	{
 		return array(
 			'id' => 'Id',
-			'uid' => 'Uid',
-			'class_id' => 'Class',
-			'title' => 'Title',
-			'content' => 'Content',
-			'comesfrom' => 'Comesfrom',
-			'key_words' => 'Key Words',
-			'hits' => 'Hits',
-			'm_time' => 'M Time',
-			'c_time' => 'C Time',
+			'uid' => '用户ID',
+			'class_id' => '分类ID',
+			'title' => '标题',
+			'content' => '正文',
+			'comesfrom' => '来源',
+			'key_words' => '关键字',
+			'hits' => '点击次数',
+			'm_time' => '修改时间',
+			'c_time' => '创建时间',
 		);
 	}
 
