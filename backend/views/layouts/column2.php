@@ -12,10 +12,8 @@ $this->beginWidget('zii.widgets.CPortlet', array('title' => '操作'));
 			"classes" => "important", 
 			"children" => array(
 				'indexAtkl' => array('text' => CHtml::link('浏览文章', array('article/index'))),
-				'viewAtkl' => array('text' => CHtml::link('预览文章', array('article/view'))),
 				'atkladmin' => array('text' => CHtml::link('管理文章', array('article/admin'))),
 				'createAtkl' => array('text' => CHtml::link('新增文章', array('article/create'))),
-				'updateAtkl' => array('text' => CHtml::link('更新文章', array('article/update'))),
 			)
 		),
 		

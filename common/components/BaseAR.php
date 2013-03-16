@@ -8,10 +8,15 @@ class BaseAR extends CActiveRecord
 	
 	public function beforeSave()
 	{
-		if($this->hasAttribute('m_time'))
-			$this->m_time = time();
-		if($this->hasAttribute('c_time'))
-			$this->c_time = time();
-		return true;
+		if(parent::beforeSave())
+		{
+			if($this->hasAttribute('m_time'))
+				$this->m_time = time();
+			if($this->hasAttribute('c_time'))
+				$this->c_time = time();
+			return true;
+		}else{
+			return false;
+		}
 	}
 }

@@ -46,6 +46,7 @@ class Article extends BaseAR
 			array('title, comesfrom', 'length', 'max'=>32),
 			array('key_words', 'length', 'max'=>64),
 			array('content', 'safe'),
+			array('content', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, uid, class_id, title, content, comesfrom, key_words, hits, m_time, c_time', 'safe', 'on'=>'search'),

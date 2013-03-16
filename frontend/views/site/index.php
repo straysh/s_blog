@@ -1,6 +1,3 @@
-	<a class="fork-me" href="https://github.com/straysh/s_blog">
-		<img style="position: absolute; top: 0px; right: 0px; border: 0px none;" src="/images//forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
-	</a>
 	<header class="site-header" id="site-header">
 		<hgroup>
 			<h1 class="site-title"><a href="<?php echo Yii::app()->request->hostInfo; ?>">Straysh的个人博客</a></h1>
