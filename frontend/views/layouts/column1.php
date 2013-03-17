@@ -4,7 +4,6 @@
 		<img style="position: absolute; top: 0px; right: 0px; border: 0px none;" src="/images//forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
 	</a>
 <?php echo $content; ?>
-
 	<footer class="site-footer" id="site-footer">
 		<h2 class="epsilon">创建和维护</h2>
 		<ul>
