@@ -18,7 +18,7 @@ Yii::app()->getClientScript()->registerCoreScript("jquery");
 
 <body>
 <nav class="site-navigation">
-	<div class="build-date">Last Updated: <?php echo date('r');?></div>
+	<div class="build-date">Last Updated: <?php echo date('r',filectime(Yii::app()->basePath.'/www/index.php'));?></div>
 	<ul>
 		<li>aaa</li>
 	</ul>
