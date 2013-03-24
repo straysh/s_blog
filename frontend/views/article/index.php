@@ -61,7 +61,7 @@ function! s:process_tag_para(line, para) "{{{
       let para = 1
     endif
     let processed = 1
-    call add(lines, substitute(a:line,'^=\t','<p>',''))
+    call add(lines, substitute(a:line,'^=\t','< p>',''))
   elseif para &amp;&amp; a:line =~ '^\s*$'
     call add(lines, "</p>")
     let para = 0
