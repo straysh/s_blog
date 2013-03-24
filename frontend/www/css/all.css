@@ -638,7 +638,7 @@ blockquote small {
   font-size: 14px;
   font-style: normal;
 }
-pre,
+/* pre,
 code,
 kbd {
   background: #F8F8F8;
@@ -686,7 +686,7 @@ a code {
   margin-right: 0px !important;
   margin-bottom: 0px !important;
   margin-left: 0px !important;
-}
+} */
 strong {
   font-weight: bold;
 }

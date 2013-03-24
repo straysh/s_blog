@@ -7,7 +7,6 @@ class ArticleController extends Controller
 	
 	public function actionIndex()
 	{
-		Yii::app()->getClientScript()->registerCoreScript("jquery");
 		$this->render('index', array(
 			
 			));

@@ -4,3 +4,4 @@ a.btm_link{text-decoration:none;}
 .langSet a{padding-right:12px;}
 .langSet .btn_arr {display: block;font: 12px/14px Simsun;height: 4px;opacity: 0.6;overflow: hidden;position: absolute;right: 3px;top: 9px;width: 8px;z-index: -1;}
 .langSet .btn_arr span {display: block; margin: -8px 0 0 -1px;}
+.justcenter{text-align:center;}
