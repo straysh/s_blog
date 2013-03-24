@@ -38,11 +38,11 @@ echo $TERM<br />
 或者修改.vimrc，添加<br />
 </p>
 <pre class="brush:conf">
-" 设置编码<br />
-set fenc=utf-8<br />
-set encoding=utf-8<br />
-set fileencodings=utf-8,gbk,cp936,latin-1<br />
-" 解决consle输出乱码<br />
+" 设置编码
+set fenc=utf-8
+set encoding=utf-8
+set fileencodings=utf-8,gbk,cp936,latin-1
+" 解决consle输出乱码
 language messages zh_CN.utf-8 
 </pre>
 <h2 id="toc_0.5">warning: CRLF will be replaced by LF</h2>
