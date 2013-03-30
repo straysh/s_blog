@@ -4,15 +4,18 @@
 		<img style="position: absolute; top: 0px; right: 0px; border: 0px none;" src="/images//forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
 	</a>
 <?php echo $content; ?>
+
 	<?php 
 	$controller = Yii::app()->controller;
 	$action = $controller->action;
 	$requestPath = strtolower(trim($controller->id, '/')).'/'.strtolower(trim($action->id, '/'));
-	if($controller != 'error' && !in_array($requestPath, array('site/index')))
+	if(!in_array($requestPath, array('site/index', 'site/error')))
 	{
-		$this->renderPartial('/comment/disqus');
+		Yii::app()->getClientScript()->registerScriptFile('/js/jquery.mousewheel.js', CClientScript::POS_HEAD);
+		echo '<div id="disqus_thread"></div>';
 	}
 	?>
+	
 	<footer class="site-footer" id="site-footer">
 		<h2 class="epsilon">创建和维护</h2>
 		<ul>
@@ -59,5 +62,24 @@
         	<span>Copyright © 2012 - 2013 Straysh. All Rights Reserved</span>
 		</div>
 	</footer>
+<script type="text/javascript">
+//<![CDATA[
+$().ready(function(){
+	var UI = {};
+	UI.disqusLoaded = false;
+	$(window).mousewheel(function(event, delta, deltaX, deltaY){
+		var scrollH	=	$(window).scrollTop();
+		var viewH	=	$(window).height();
+		var limit		=	$('#site-footer').position().top-20;
+		if( (viewH+scrollH) >= limit && !UI.disqusLoaded){
+			if(delta < 0){
+				UI.disqusLoaded=true;
+				$.getScript('/js/disqus.js');
+			}
+		}
+	});
+}	);
+//]]>
+</script>
 </div>
 <?php $this->endContent(); ?>

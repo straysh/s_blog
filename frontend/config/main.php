@@ -15,7 +15,13 @@ return array(
 		'frontend.models.*',
 		'frontend.components.*',
 		'frontend.controllers.*',
-	),
+		),
+	
+	'components'=>array(
+		'cache'=>array(
+			'class'=>'CFileCache',
+			),
+		),
 
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
