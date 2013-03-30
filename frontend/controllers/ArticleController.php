@@ -10,7 +10,7 @@ class ArticleController extends Controller
 		return array(
 			array(
 				'COutputCache',
-				'duration'=>10,
+				'duration'=>86400,
 				'varyByParam'=>array('id'),
 				),
 			);
