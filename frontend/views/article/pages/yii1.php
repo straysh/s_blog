@@ -70,3 +70,26 @@ function! s:process_tag_para(line, para) "{{{
   return [processed, lines, para]
 endfunction "}}}
 </pre>
+=	上次修改完之后发现一个bug，wiki的超链接语法无法转换成html链接。再次修改代码如下：
+<pre class='brush:bash'>
+function! s:process_tag_para(line, para) "{{{
+  let lines = []
+  let para = a:para
+  let processed = 0
+  if a:line =~ '^=\t\S'
+    if !para
+"     call add(lines, "<p>")
+      call add(lines, substitute(a:line,'^=\t','<p>',''))
+      let para = 1
+    endif
+    let processed = 1
+  elseif para && a:line =~ '^\s*$'
+    call add(lines, "</p>")
+    let para = 0
+  else
+    call add(lines, a:line) 
+    let processed = 1
+  endif
+  return [processed, lines, para]
+endfunction "}}}
+</pre>
