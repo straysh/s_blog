@@ -34,8 +34,8 @@
 						'float for force foreign forward free from full function global goto grant ' +
 						'group grouping having hour ignore index inner insensitive insert instead ' +
 						'int integer intersect into is isolation key last level load local max min ' +
-						'minute modify move name national nchar next no numeric of off on only ' +
-						'open option order out output partial password precision prepare primary ' +
+						'minute modify move national nchar next no numeric of off on only ' +
+						'open option order limit out output partial password precision prepare primary ' +
 						'prior privileges procedure public read real references relative repeatable ' +
 						'restrict return returns revoke rollback rollup rows rule schema scroll ' +
 						'second section select sequence serializable set size smallint static ' +

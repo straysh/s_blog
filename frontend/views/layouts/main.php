@@ -27,6 +27,13 @@ Yii::app()->getClientScript()->registerCoreScript("jquery");
 				array('text'=>CHtml::link('demo blog入口分析', array('/article/page/category/yii/id/2'))),
 				),
 			),
+		array(
+			'text'=>'<a href="#">MySQL</a>',
+			'children'=>array(
+				array('text'=>CHtml::link('MySQL权威指南笔记（一）', array('/article/page/category/mysql/id/1'))),
+				array('text'=>CHtml::link('MySQL权威指南笔记（二）', array('/article/page/category/mysql/id/2'))),
+				),
+			),
 		);
 	$this->widget('CTreeView', 
 		array(

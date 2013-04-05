@@ -31,7 +31,7 @@
 						'lprintd lprintq lprm ls lsof make man mkdir mkfifo mkisofs mknod more mount mtools ' +
 						'mv netstat nice nl nohup nslookup open op passwd paste pathchk ping popd pr printcap ' +
 						'printenv printf ps pushd pwd quota quotacheck quotactl ram rcp read readonly renice ' +
-						'remsync rm rmdir rsync screen scp sdiff sed select seq set sftp shift shopt shutdown ' +
+						'remsync rm rmdir rsync screen scp sdiff sed select table compaund seq set sftp shift shopt shutdown ' +
 						'sleep sort source split ssh strace su sudo sum symlink sync tail tar tee test time ' +
 						'times touch top traceroute trap tr tsort tty type ulimit umask umount unalias ' +
 						'uname unexpand uniq units unset unshar useradd usermod users uuencode uudecode v vdir ' +
