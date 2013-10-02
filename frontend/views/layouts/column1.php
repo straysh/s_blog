@@ -62,26 +62,6 @@
         	<span>Copyright © 2012 - 2013 Straysh. All Rights Reserved</span>
 		</div>
 	</footer>
-<script type="text/javascript">
-//<![CDATA[
-$().ready(function(){
-	var UI = {};
-	UI.disqusLoaded = false;
-	if($('#disqus_thread').length > 0){
-		$(window).mousewheel(function(event, delta, deltaX, deltaY){
-			var scrollH	=	$(window).scrollTop();
-			var viewH	=	$(window).height();
-			var limit		=	$('#site-footer').position().top-20;
-			if( (viewH+scrollH) >= limit && !UI.disqusLoaded){
-				if(delta < 0){
-					UI.disqusLoaded=true;
-					$.getScript('/js/disqus.js');
-				}
-			}
-		});
-	}
-}	);
-//]]>
-</script>
+<script type="text/javascript" src="/js/mywiki.js"></script>
 </div>
 <?php $this->endContent(); ?>

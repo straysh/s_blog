@@ -3,7 +3,7 @@
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 Yii::setPathOfAlias('common',dirname(__FILE__).'/../');
-Yii::setPathOfAlias('oututils',dirname(__FILE__).'/../../../YiiOutUtils/');
+// Yii::setPathOfAlias('oututils',dirname(__FILE__).'/../../../YiiOutUtils/');
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
@@ -19,6 +19,20 @@ return array(
 		'common.models.*',
 		'common.qmodels.*',
 		'common.components.*',
+		'common.components.utils.*'
+	),
+	
+	'modules' => array(
+		// uncomment the following to enable the Gii tool
+		'gii' => array(
+			'class' => 'system.gii.GiiModule',
+			'password' => '884168',
+			// If removed, Gii defaults to localhost only. Edit carefully to taste.
+			'ipFilters' => array(
+				'127.0.0.1',
+				'::1'
+			)
+		)
 	),
 
 	'defaultController'=>'site',
@@ -36,12 +50,12 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=straysh_blog',
+			'connectionString' => 'mysql:host=localhost;dbname=s_blog',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '123456',
 			'charset' => 'utf8',
-			'tablePrefix' => 'tbl_',
+			'tablePrefix' => 's_',
 		),
 		
 		'errorHandler'=>array(
@@ -54,8 +68,17 @@ return array(
 			'rules'=>array(
 			 'post/<id:\d+>/<title:.*?>'=>'post/view',
 				'posts/<tag:.*?>'=>'post/index',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				'<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
 			),
+		),
+		
+		'authManager'=>array(
+			'class'=>'CDbAuthManager',
+			'connectionID'=>'db',
+			'defaultRoles'=>array('authenticated', 'guest'),
+			'itemTable'=>'AuthItem',
+			'itemChildTable'=>'AuthItemChild',
+			'assignmentTable'=>'AuthAssignment',
 		),
 	),
 	// application-level parameters that can be accessed

@@ -1,13 +1,16 @@
 <?php
-$breadcrumbs=array(
-	'Articles'=>array('index'),
-	'Manage',
-);
+/* @var $this ArticleController */
+/* @var $model Article */
 
-$menu=array(
-	array('label'=>'List article', 'url'=>array('index')),
-	array('label'=>'Create article', 'url'=>array('create')),
-);
+// $this->breadcrumbs=array(
+// 	'Articles'=>array('index'),
+// 	'Manage',
+// );
+
+// $this->menu=array(
+// 	array('label'=>'List Article', 'url'=>array('index')),
+// 	array('label'=>'Create Article', 'url'=>array('create')),
+// );
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
@@ -43,16 +46,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'uid',
-		'class_id',
+		'tid',
 		'title',
-		'content',
-		'comesfrom',
-		/*
-		'key_words',
+		'author',
+		'nav_id',
 		'hits',
-		'm_time',
+		/*
 		'c_time',
+		'm_time',
 		*/
 		array(
 			'class'=>'CButtonColumn',

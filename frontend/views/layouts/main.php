@@ -19,28 +19,13 @@ Yii::app()->getClientScript()->registerCoreScript("jquery");
 <nav class="site-navigation">
 	<div class="build-date">Last Updated: <?php echo date('r', filectime(Yii::app()->basePath.'/www/index.php'));?></div>
 	<?php
-	$data = array(
-		array(
-			'text'=>'<a href="#">YII</a>',
-			'children'=>array(
-				array('text'=>CHtml::link('博文测试', array('/article/page/category/yii/id/1'))),
-				array('text'=>CHtml::link('demo blog入口分析', array('/article/page/category/yii/id/2'))),
-				),
-			),
-		array(
-			'text'=>'<a href="#">MySQL</a>',
-			'children'=>array(
-				array('text'=>CHtml::link('MySQL权威指南笔记（一）', array('/article/page/category/mysql/id/1'))),
-				array('text'=>CHtml::link('MySQL权威指南笔记（二）', array('/article/page/category/mysql/id/2'))),
-				),
-			),
-		);
+// 	var_dump(ArticleList::get_singleton()->dataList());
 	$this->widget('CTreeView', 
 		array(
 		 	'id'=>'menu-treeview',
 			'persist' => 'cookie',
 			'control'=>'#treecontrol',
-			'data' => $data, 
+			'data' => ArticleList::get_singleton()->dataList(), 
 			'animated' => 'fast', 
 			'htmlOptions' => array('id' => 'admin_treeview', 
 			'class' => 'filetree treeplus')

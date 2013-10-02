@@ -9,27 +9,37 @@ class ArticleController extends Controller
 	{
 		return array(
 			array(
-				'COutputCache',
-				'duration'=>86400,
-				'varyByParam'=>array('category', 'id'),
+				'COutputCache + page',
+				'duration' => -1,
+				'varyByParam' => array('category', 'id'),
 				),
 			);
 	}
 	
 	public function actions()
 	{
-		return array(
-			'page'=>array(
-				'class'=>'ArticleRoute',
-				'viewParam'=>'id',
-				),
-			);
+// 		return array(
+// 			'page'=>array(
+// 				'class'=>'ArticleRoute',
+// 				'viewParam'=>'id',
+// 				),
+// 			);
 	}
 	
 	public function actionIndex()
 	{
 		$this->render('index', array(
 			
+			));
+	}
+	
+	public function actionPage()
+	{
+		$category = Yii::app()->request->getParam('category');
+		$id = Yii::app()->request->getParam('id');
+		$model = Article::model()->findByPk($id);
+		$this->render('page', array(
+			'model' => $model,
 			));
 	}
 }

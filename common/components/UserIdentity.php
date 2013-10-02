@@ -18,9 +18,9 @@ class UserIdentity extends CUserIdentity
 			return $this->errorCode;
 		}
 		
-		$usreg = Muser::model();
+		$usreg = User::model();
 		$password = $this->encryptPwd($this->password);
-		$condition="user_name=:uname AND user_pwd=:pwd AND st_flag=:st_flg";
+		$condition="name=:uname AND password=:pwd AND state=:st_flg";
 		$params=array(':uname'=>$this->username, ':pwd'=>$password, ':st_flg'=>1);
 		$exits = $usreg->exists($condition, $params);
 
@@ -28,11 +28,12 @@ class UserIdentity extends CUserIdentity
 		{
 			// login sucess
 			$user=$usreg->find(array(
-			    'condition'=>'user_name=:name',
+			    'condition'=>'name=:name',
 			    'params'=>array(':name'=>$this->username),
 			));
 			$this->_id=$user->id;
-			$states = array('domain'=>".ifcenter.com");
+			$hostinfo = Yii::app()->request->hostinfo;
+			$states = array('domain'=>substr($hostinfo, strpos($hostinfo, '.')+1));
 			$this->setPersistentStates($states);
 			$this->errorCode = self::ERROR_NONE;
 			return $this->errorCode;

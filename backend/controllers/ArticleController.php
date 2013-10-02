@@ -9,17 +9,13 @@ class ArticleController extends Controller
 	public $layout='//layouts/column2';
 
 	/**
-	 * @var CActiveRecord the currently loaded data model instance.
-	 */
-	private $_model;
-
-	/**
 	 * @return array action filters
 	 */
 	public function filters()
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
+			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -36,12 +32,12 @@ class ArticleController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-// 				'actions'=>array('create','update'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+				'roles'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -51,11 +47,12 @@ class ArticleController extends Controller
 
 	/**
 	 * Displays a particular model.
+	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView()
+	public function actionView($id)
 	{
 		$this->render('view',array(
-			'model'=>$this->loadModel(),
+			'model'=>$this->loadModel($id),
 		));
 	}
 
@@ -73,9 +70,14 @@ class ArticleController extends Controller
 		if(isset($_POST['Article']))
 		{
 			$model->attributes=$_POST['Article'];
-			$model->uid = Yii::app()->user->id;
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			{
+				$articleContent = new ArticleContent();
+				$articleContent->attributes = $_POST['ArticleContent'];
+				$articleContent->pid = $model->id;
+				if($articleContent->content && $articleContent->save())
+					$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -86,18 +88,25 @@ class ArticleController extends Controller
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
+	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate()
+	public function actionUpdate($id)
 	{
-		$model=$this->loadModel();
+		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['article']))
+		if(isset($_POST['Article']))
 		{
-			$model->attributes=$_POST['article'];
-			if($model->save())
+			$model->attributes=$_POST['Article'];
+			$basicSave = $model->save();
+			$content = $_POST['ArticleContent']['content'];
+			$pid = $model->id;
+			$contentSave = $this->validateArticleContent($content)
+							? ArticleContent::model()->updateAll(array('content'=>$content), 'pid=:pid', array(':pid'=>$pid))
+							: false;
+			if($contentSave || $basicSave)
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
@@ -108,21 +117,16 @@ class ArticleController extends Controller
 
 	/**
 	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'index' page.
+	 * If deletion is successful, the browser will be redirected to the 'admin' page.
+	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionDelete()
+	public function actionDelete($id)
 	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			// we only allow deletion via POST request
-			$this->loadModel()->delete();
+		$this->loadModel($id)->delete();
 
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(array('index'));
-		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -130,7 +134,7 @@ class ArticleController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('article');
+		$dataProvider=new CActiveDataProvider('Article');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -143,8 +147,8 @@ class ArticleController extends Controller
 	{
 		$model=new Article('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['article']))
-			$model->attributes=$_GET['article'];
+		if(isset($_GET['Article']))
+			$model->attributes=$_GET['Article'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -154,17 +158,14 @@ class ArticleController extends Controller
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
+	 * @param integer the ID of the model to be loaded
 	 */
-	public function loadModel()
+	public function loadModel($id)
 	{
-		if($this->_model===null)
-		{
-			if(isset($_GET['id']))
-				$this->_model=Article::model()->findbyPk($_GET['id']);
-			if($this->_model===null)
-				throw new CHttpException(404,'The requested page does not exist.');
-		}
-		return $this->_model;
+		$model=Article::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
 	}
 
 	/**
@@ -178,5 +179,17 @@ class ArticleController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+	
+	/**
+	 * 校验article content内容
+	 * @return bool 通过校验返回TRUE；失败则返回FALSE
+	 *
+	 * @author  : Straysh / 2013-9-29
+	 * @version : 1.0
+	 */
+	public function validateArticleContent($content)
+	{
+		return !empty($content);
 	}
 }
