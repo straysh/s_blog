@@ -37,6 +37,7 @@ class ArticleController extends Controller
 	{
 		$category = Yii::app()->request->getParam('category');
 		$id = Yii::app()->request->getParam('id');
+		var_dump('FFFFFFF',$id);
 		$model = Article::model()->findByPk($id);
 		$this->render('page', array(
 			'model' => $model,

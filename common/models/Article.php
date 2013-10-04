@@ -62,7 +62,7 @@ class Article extends BaseAR
 		// class name for the relations automatically generated below.
 		return array(
 			'content' => array(self::HAS_ONE, 'ArticleContent', 'pid'),
-			'nav' => array(self::HAS_ONE, 'NavList', 'id'),
+			'nav' => array(self::BELONGS_TO, 'NavList', array('nav_id'=>'id')),
 		);
 	}
 

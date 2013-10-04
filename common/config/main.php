@@ -52,6 +52,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=s_blog',
 			'emulatePrepare' => true,
+			'enableProfiling' => TRUE,
+			'enableParamLogging' => TRUE,
 			'username' => 'root',
 			'password' => '123456',
 			'charset' => 'utf8',

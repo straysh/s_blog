@@ -19,6 +19,11 @@
 
 	<?php echo $form->errorSummary($model); ?>
 	
+	
+	<div class="row buttons">
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+	</div>
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'nav_id'); ?>
 		<?php echo $form->dropDownList($model,'nav_id', NavList::model()->dropDownList(), array('prompt'=>'--请选择--')); ?>
@@ -47,15 +52,12 @@
 		<a id="load_article">load article</a>
 		<?php if(isset($model->content)):?>
 			<?php echo $form->labelEx($model->content,'content'); ?>
-			<?php echo $form->textArea($model->content,'content', array('id'=>'article_content', 'rows'=>10, 'style'=>'width:100%;')); ?>
+			<?php $model->content->content = htmlspecialchars_decode($model->content->content); ?>
+			<?php echo $form->textArea($model->content,'content', array('id'=>'article_content', 'rows'=>50, 'style'=>'width:100%;')); ?>
 			<?php echo $form->error($model->content,'content'); ?>
 		<?php ELSE:?>
-			<?php echo CHtml::textArea('ArticleContent[content]','', array('id'=>'article_content', 'rows'=>10, 'style'=>'width:100%;')); ?>
+			<?php echo CHtml::textArea('ArticleContent[content]','', array('id'=>'article_content', 'rows'=>50, 'style'=>'width:100%;')); ?>
 		<?php ENDIF;?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
