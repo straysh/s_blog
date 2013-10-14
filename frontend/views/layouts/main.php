@@ -19,7 +19,6 @@ Yii::app()->getClientScript()->registerCoreScript("jquery");
 <nav class="site-navigation">
 	<div class="build-date">Last Updated: <?php echo date('r', filectime(Yii::app()->basePath.'/www/index.php'));?></div>
 	<?php
-// 	var_dump(ArticleList::get_singleton()->dataList());
 	$this->widget('CTreeView', 
 		array(
 		 	'id'=>'menu-treeview',

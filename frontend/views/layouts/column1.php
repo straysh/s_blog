@@ -29,7 +29,7 @@
 	
 		<h2 class="epsilon">电子邮件</h2>
 		<ul>
-			<li><?php echo CHtml::mailto('jobhancao@yahoo.com.cn', 'jobhancao@yahoo.com.cn'); ?></li>
+			<li><?php echo CHtml::mailto('jobhancao@gmail.com', 'jobhancao@gmail.com'); ?></li>
 		</ul>
 
 		<h2 class="epsilon">现居地</h2>
@@ -47,7 +47,7 @@
 		<div>
 			<?php echo CHtml::link("Straysh's Blog", Yii::app()->request->hostinfo)?>
 			|
-			<?php echo CHtml::mailto('给我留言', 'jobhancao@yahoo.com.cn'); ?>
+			<?php echo CHtml::mailto('给我留言', 'jobhancao@gmail.com'); ?>
 			|
 			<div class="langSet" onclick="return false;" onmouseover="$(this).addClass('btm_link')" onmouseout="$(this).removeClass('btm_link')">
 				<a href="?">Language<span class="btn_arr"><span><em>◆</em></span></span></a>
@@ -62,6 +62,7 @@
         	<span>Copyright © 2012 - 2013 Straysh. All Rights Reserved</span>
 		</div>
 	</footer>
+<script type="text/javascript" src="/js/setup.js"></script>
 <script type="text/javascript" src="/js/mywiki.js"></script>
 </div>
 <?php $this->endContent(); ?>
