@@ -17,6 +17,7 @@ class MyRequest
 	
 	public function createUrl($route,$params=array(),$ampersand='&', $base = 'frontUrl')
 	{
-		return Yii::app()->params[$base].Yii::app()->createUrl($route, $params, $ampersand);
+// 		return Yii::app()->params[$base].Yii::app()->createUrl($route, $params, $ampersand);
+		return Yii::app()->request->hostinfo.Yii::app()->createUrl($route, $params, $ampersand);
 	}
 }
