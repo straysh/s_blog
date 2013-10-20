@@ -1,4 +1,5 @@
 @CHARSET "UTF-8";
+body{background:url(/images/layout/it-line2.jpg)}
 a.btm_link{text-decoration:none;}
 .langSet{display:inline-block;position:relative;}
 .langSet a{padding-right:12px;}
