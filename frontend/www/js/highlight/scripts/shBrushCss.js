@@ -82,7 +82,7 @@
 	};
 
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();
-	Brush.aliases	= ['css'];
+	Brush.aliases	= ['css', 'html'];
 
 	SyntaxHighlighter.brushes.CSS = Brush;
 

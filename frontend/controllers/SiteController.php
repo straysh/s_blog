@@ -14,6 +14,8 @@ class SiteController extends Controller
 	
 	public function actionError()
 	{
+		$this->render('/profile/index');
+		Yii::app()->end();
 		if(($error=Yii::app()->errorHandler->error) != FALSE)
 		{
 			if(Yii::app()->request->isAjaxRequest)

@@ -27,6 +27,8 @@ $().ready(function(){
 								return 'conf @shBrushConf.js';
 						if(/\bsql\b/.test(type))
 								return 'sql @shBrushSql.js';
+						if(/\b(css)|(html)\b/.test(type))
+							return 'css html @shBrushCss.js';
 					})(type);
 				}
 			}
