@@ -1,5 +1,5 @@
 <?php
-require_once(Yii::getPathOfAlias('common.components.qqweibo.Tencent').'.php');
+require_once(Yii::app()->params['thirdloginlib'].'qqweibo/Tencent.php');
 
 $cbk = MyRequest::get_singleton()->createUrl('/user/oauth', array('qq'=>'reg'));
 OAuth::init(Yii::app()->params['qqA_KEY'], Yii::app()->params['qqS_KEY']);

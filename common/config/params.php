@@ -1,7 +1,7 @@
 <?php
 $main = array(
 	'frontUrl' => 'http://www.straysh.com',
-	'longlib' => '/data2/thirdLogin/',
+	'thirdloginlib' => '/data2/thirdLogin/',
 	'weiboA_KEY' => '3882062324',
 	'weiboS_KEY' => '6f5652939c145f860afefd1b143b82f0',
 	'qqA_KEY' => '801283726',

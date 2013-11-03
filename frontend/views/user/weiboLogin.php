@@ -1,5 +1,5 @@
 <?php
-require_once(Yii::getPathOfAlias('common.components.libweibo.saetv2').'.php');
+require_once(Yii::app()->params['thirdloginlib'].'libweibo/saetv2.ex.class.php');
 
 $cbk = MyRequest::get_singleton()->createUrl('/user/oauth', array('weibo'=>'reg'));
 $oauth = new SaeTOAuthV2(Yii::app()->params['weiboA_KEY'] , Yii::app()->params['weiboS_KEY']);
