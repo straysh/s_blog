@@ -10,6 +10,7 @@ Yii::setPathOfAlias('common',dirname(__FILE__).'/../');
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>"Straysh's Blog",
+	'layout' => 'column1',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
