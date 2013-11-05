@@ -7,7 +7,7 @@ class SiteController extends Controller
 	
 	public function actionIndex()
 	{
-		$this->render('/profile/index', array(
+		$this->render('index', array(
 			
 			));
 	}

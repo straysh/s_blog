@@ -11,7 +11,7 @@
 	<li>熟练掌握html、css、js(jQuery)以及ajax等前端技术。</li>
 	<li>熟悉Linux操作系统，能够在Linux环境下熟练开发。</li>
 </ul>
-<h3>目前，求职中。期望公司从事电商或游戏或SNS社区</h3><h3>联系方式：</h3>
+<h3>目前，就职于泰纳传媒。</h3><h3>联系方式：</h3>
 <ul>
 	<li>Mail:jobhancao@gmail.com or 369310239@qq.com</li>
 	<li>QQ: 369310239(务必注明blog或其它)</li>
