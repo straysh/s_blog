@@ -58,11 +58,6 @@ return array(
 		'urlManager'=>array(
 			'urlFormat'=>'get',
 			'showScriptName'=>false,
-			'rules'=>array(
-			 'post/<id:\d+>/<title:.*?>'=>'post/view',
-				'posts/<tag:.*?>'=>'post/index',
-				'<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
-			),
 		),
 		
 		'authManager'=>array(
