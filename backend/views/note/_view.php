@@ -10,7 +10,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('note')); ?>:</b>
-	<?php echo CHtml::encode($data->note); ?>
+	<?php echo $data->note; ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('c_time')); ?>:</b>

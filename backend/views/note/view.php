@@ -4,7 +4,11 @@
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'note',
+		array(
+			'type' => 'raw',
+			'name' => 'note',
+			'value' => $model->note,
+		),
 		array(
 			'name' => 'c_time',
 			'value' => date("Y-m-d, H:i:s", $model->c_time),
