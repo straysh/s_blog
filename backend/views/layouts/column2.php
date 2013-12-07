@@ -6,7 +6,7 @@ $this->beginContent('//layouts/main');
 <?php
 $this->beginWidget('zii.widgets.CPortlet', array('title' => '操作'));
 	$data = array(
-		'clbt' => array(
+		'article' => array(
 			//'unique'=>true,
 			"text" =>'文章管理', 
 			"classes" => "important", 
@@ -16,8 +16,16 @@ $this->beginWidget('zii.widgets.CPortlet', array('title' => '操作'));
 				'createAtkl' => array('text' => CHtml::link('新增文章', array('article/create'))),
 			)
 		),
-		
-
+		'note' => array(
+			//'unique'=>true,
+			"text" =>'笔记管理', 
+			"classes" => "important", 
+			"children" => array(
+				'indexNote' => array('text' => CHtml::link('浏览笔记', array('note/index'))),
+				'adminNote' => array('text' => CHtml::link('管理笔记', array('note/admin'))),
+				'createNote' => array('text' => CHtml::link('新增笔记', array('note/create'))),
+			)
+		),
 	);
 	?>
 	<div id="treecontrol">
