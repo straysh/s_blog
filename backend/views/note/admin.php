@@ -36,7 +36,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'note',
+		array(
+			'type' => 'raw',
+			'name' => 'note',
+			'value' => '$data->note',
+		),
 		array(
 			'header'=> 'c_time',
 			'value' => 'date("Y-m-d, H:i:s", $data->c_time)',
