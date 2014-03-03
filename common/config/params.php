@@ -11,6 +11,30 @@ $main = array(
 	'googleD_KEY' => 'AIzaSyD9td0ItGeEhjn7puFw_33vrQhUiYkGdEA',
 	'githubA_KEY' => '743c807e51a95a47a9d7',
 	'githubS_KEY' => '9369b299ac210cfdd33888ffe03549b0f56f08b7',
-	);
+	'captcha_google' => array(
+		'class' => '/data0/library/php/captcha/recaptcha-php-1.11/recaptchalib.php',
+		'public_key' => '6LeTa-8SAAAAAMaP2zdU0_lW46wo9lODnkqXkkGG',
+		'private_key' => '6LeTa-8SAAAAACgp-3JnZlki19wBoAA0zFJ2tB3B',
+		'doc' => 'https://developers.google.com/recaptcha/docs/php?csw=1',
+	),
+	'thecaptcha' => array(
+		'class' => '/data0/library/php/captcha/thecaptcha/captcha.function.php',
+		'doc' => 'http://www.thecaptcha.com/',
+	),
+	'3dcaptcha' => array(
+		'class' => '/data0/library/php/captcha/3Dcaptcha/captcha3D.php',
+		'doc' => 'https://github.com/intval/3Dcaptcha',
+		'doc2' => 'http://www.3dcaptcha.net/',
+	),
+	'3dcaptchav2' => array(
+		'pre_class' => '/data0/library/php/captcha/3dCaptcha-1.0.0/src/TextGen.php',
+		'class' => '/data0/library/php/captcha/3dCaptcha-1.0.0/src/3DCaptcha.php',
+		'doc' => 'https://code.google.com/p/3dcaptcha/',
+	),
+	'quickcaptcha' => array(
+		'class' => '/data0/library/php/captcha/quickcaptchav1.0/imagebuilder.php',
+		'doc' => 'http://www.web1marketing.com/resources/tools/quickcaptcha/',
+	),
+);
 $local = dirname(__FILE__).'/params_local.php';
 return file_exists($local) ? array_merge($main, require($local)) : $main;
