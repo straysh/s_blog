@@ -12,6 +12,16 @@ class TestController extends Controller
 		$this->render('index');
 	}
 	
+	public function actionCaptcha()
+	{
+		$this->render('captcha');
+	}
+	
+	public function actionJqdragdrop()
+	{
+		$this->render('lifemenu');
+	}
+	
 	public function actionCaptchagoogle()
 	{
 		require_once(Yii::app()->params['captcha_google']['class']);
