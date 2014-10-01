@@ -22,6 +22,7 @@ return array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
 			'rules'=>array(
+				'article/<category:\w+>/' => '/article/category',
 				'<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
 			),
 		),

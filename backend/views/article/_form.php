@@ -26,7 +26,7 @@
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'nav_id'); ?>
-		<?php echo $form->dropDownList($model,'nav_id', NavList::model()->dropDownList(), array('prompt'=>'--请选择--')); ?>
+		<?php echo $form->dropDownList($model,'nav_id', Category::model()->dropDownList(), array('prompt'=>'--请选择--')); ?>
 		<?php echo $form->error($model,'nav_id'); ?>
 	</div>
 

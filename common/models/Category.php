@@ -11,7 +11,7 @@
  * @property string $total
  * @property string $m_time
  */
-class Category extends CActiveRecord
+class Category extends BaseAR
 {
 	/**
 	 * @return string the associated database table name
@@ -103,5 +103,54 @@ class Category extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	/**
+	 * @param int $topNode
+	 *
+	 * @return array
+	 */
+	public function dropDownList($topNode=NULL)
+	{
+		/* @var Category $item */
+		$model = $this->findAll();
+		$ret = array();
+		foreach ($model as $item)
+		{
+			$ret[$item->id] = strtolower($item->nav_name);
+		}
+		return $ret;
+	}
+
+	/**
+	 * 按主键查导航标签英文名
+	 * @param int $id self::id,primary key
+	 * @return string self::nav_name. empty string if not found;
+	 *
+	 * @author  : Straysh / 2013-9-27
+	 * @version : 1.0
+	 */
+	public function navName($id)
+	{
+		/* @var Category $data */
+		$data = $this->findByPk($id);
+		return $data ? strtolower($data->nav_name) : '';
+	}
+
+	/**
+	 * @param string $category
+	 *
+	 * @return CActiveRecord
+	 */
+	public function findByName($category)
+	{
+		if(empty($category))
+			return NULL;
+		$result = $this->find(array(
+				'condition' => 'nav_name=:name',
+				'params' => array(':name' => $category)
+			));
+
+		return $result;
 	}
 }

@@ -1,5 +1,5 @@
 <?php
-class SiteController extends Controller
+class SiteController extends BController
 {
 	public $layout='column1';
 	

@@ -8,3 +8,18 @@ a.btm_link{text-decoration:none;}
 .justcenter{text-align:center;}
 a.back2top{text-decoration:none; padding: 4px 8px; background: #333; color:#FFF;}
 a.back2top:hover{text-decoration:underline; background: #FFF; color: #333;}
+
+nav{
+    border-right: 2px solid #96C7EE;
+}
+crumbs strong{
+    color: #556677;
+}
+summary {
+    border-top: 2px solid #DDDDDD;
+    margin-bottom: 2em;
+}
+
+content > h1{
+    border-bottom: 1px solid #9d9d9d;
+}

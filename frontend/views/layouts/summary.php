@@ -1,6 +1,8 @@
 <?php
-/**
- * User: straysh / <jobhancao@gmail.com>
- * Date: 14-10-1
- * Time: 下午10:51
- */ 
+/* @var Category $category */
+$categories = $this->createUrl('/');
+$summary = <<<HTML
+<summary><a href="{$categories}">分类</a>: {$category->nav_name} ( 共{$category->total}篇文章 )</summary>
+HTML;
+
+echo $summary;

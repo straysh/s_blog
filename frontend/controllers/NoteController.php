@@ -1,5 +1,5 @@
 <?php
-class NoteController extends Controller
+class NoteController extends FController
 {
 	public $layout='column1';
 	

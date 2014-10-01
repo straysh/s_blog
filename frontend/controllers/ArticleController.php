@@ -1,5 +1,6 @@
 <?php
-class ArticleController extends Controller
+
+class ArticleController extends FController
 {
 	public $layout='column1';
 	
@@ -30,6 +31,22 @@ class ArticleController extends Controller
 	{
 		$this->render('index', array(
 			
+			));
+	}
+
+	public function actionCategory()
+	{
+		$category = Yii::app()->request->getParam('category');
+		if(empty($category))
+		{
+			$this->render('//site/index');
+		}
+		/* @var Category $category */
+		$category = Category::model()->findByName($category);
+		$articles = Article::model()->findByCategory($category->id);
+		$this->render('catlist', array(
+				'articles' => $articles,
+				'category' => $category,
 			));
 	}
 	

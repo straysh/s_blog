@@ -1,5 +1,5 @@
 <?php
-class ProfileController extends Controller
+class ProfileController extends FController
 {
 	public $layout='column1';
 	

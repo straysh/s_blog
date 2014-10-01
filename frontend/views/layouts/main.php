@@ -8,29 +8,28 @@
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="/css/all.css">
 <link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/highlight.min.css">
 <title>Straysh's Blog</title>
 <link rel="icon" href="/images/favicon.ico" >
-<?php 
+<?php
 Yii::app()->getClientScript()->registerCoreScript("jquery");
+Yii::app()->getClientScript()->registerScriptFile("/js/highlight.min.js");
 ?>
+	<script>
+		$(document).ready(function() {
+			$('pre code').each(function(i, block) {
+				hljs.highlightBlock(block);
+			});
+		});
+	</script>
 </head>
 
 <body>
 <nav class="site-navigation">
 	<div class="build-date">Last Updated: <?php echo date('r', filectime(Yii::app()->basePath.'/www/index.php'));?></div>
 	<?php
-	$this->widget('CTreeView', 
-		array(
-		 	'id'=>'menu-treeview',
-			'persist' => 'cookie',
-			'control'=>'#treecontrol',
-			'data' => ArticleList::get_singleton()->dataList(), 
-			'animated' => 'fast', 
-			'htmlOptions' => array('id' => 'admin_treeview', 
-			'class' => 'filetree treeplus')
-		)
-	);
-	?>	
+		$this->renderPartial('//layouts/sidetree');
+	?>
 </nav>
 
 <?php echo $content; ?>

@@ -1,5 +1,5 @@
 <?php
-class Controller extends CController
+class BController extends CController
 {
 	public function init()
 	{
