@@ -68,6 +68,17 @@ return array(
 			'itemChildTable'=>'AuthItemChild',
 			'assignmentTable'=>'AuthAssignment',
 		),
+
+		'log' => array(
+			'class' => 'CLogRouter',
+			'routes' => array(
+				array(
+					'class' => 'CFileLogRoute',
+					'levels' => 'error,trace,info,warning',
+					'categories' => 'system.db.CDbCommand'
+				),
+			),
+		),
 	),
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
