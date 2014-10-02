@@ -6,9 +6,7 @@ require.config({
 });
 
 require(['jquery', 'libs/highlight.pack', 'disqus', 'back2top'], function($, hljs, disqus, back2top){
-    $().ready(function(){
-        hljs.initHighlightingOnLoad();
-        back2top();
-        disqus();
-    });
+    hljs.initHighlightingOnLoad();
+    back2top();
+    disqus();
 });
