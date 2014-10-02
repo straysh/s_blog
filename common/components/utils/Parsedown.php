@@ -15,6 +15,7 @@
 
 class Parsedown
 {
+	private $_highlight_prefix = 'language-';
     #
     # Philosophy
 
@@ -405,7 +406,7 @@ class Parsedown
 
             if (isset($matches[2]))
             {
-                $class = 'language-'.$matches[2];
+                $class = $this->_highlight_prefix.$matches[2];
 
                 $Element['attributes'] = array(
                     'class' => $class,

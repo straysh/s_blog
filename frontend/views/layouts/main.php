@@ -8,19 +8,15 @@
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="/css/all.css">
 <link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/highlight.min.css">
+<link rel="stylesheet" href="/css/highlight/monokai_sublime.css">
 <title>Straysh's Blog</title>
 <link rel="icon" href="/images/favicon.ico" >
 <?php
 Yii::app()->getClientScript()->registerCoreScript("jquery");
-Yii::app()->getClientScript()->registerScriptFile("/js/highlight.min.js");
+Yii::app()->getClientScript()->registerScriptFile("/js/highlight.pack.js");
 ?>
 	<script>
-		$(document).ready(function() {
-			$('pre code').each(function(i, block) {
-				hljs.highlightBlock(block);
-			});
-		});
+		hljs.initHighlightingOnLoad();
 	</script>
 </head>
 
