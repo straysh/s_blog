@@ -9,7 +9,7 @@
 	$controller = Yii::app()->controller;
 	$action = $controller->action;
 	$requestPath = strtolower(trim($controller->id, '/')).'/'.strtolower(trim($action->id, '/'));
-	if(!in_array($requestPath, array('site/index', 'site/error', 'profile/index')))
+	if(in_array($requestPath, array('article/page')))
 	{
 		echo '<div id="disqus_thread"></div>';
 	}

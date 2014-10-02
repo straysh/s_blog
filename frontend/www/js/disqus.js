@@ -1,9 +1,27 @@
-/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-var disqus_shortname = 'straysh'; // Required - Replace example with your forum shortname
+define(['jquery'], function($){
+    var UI = {};
 
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
+    function lowEnough() {
+        var scrollH	=	$(window).scrollTop();
+        var viewH	=	$(window).height();
+        var limit	=	$('#site-footer').position().top-20;
+        return (viewH+scrollH) >= limit && !UI.disqusLoaded;
+    }
+
+    function checkScroll() {
+        if (!lowEnough()) {
+            return __pollScroll();
+        }
+        UI.disqusLoaded=true;
+        $.getScript('/js/libs/disqus.js');
+    }
+
+    function __pollScroll() {
+        if(!$('#disqus_thread').length){
+            return UI.disqusLoaded = true;
+        }
+        setTimeout(checkScroll, 100);
+    }
+
+    return __pollScroll;
+});
