@@ -16,7 +16,9 @@ Yii::app()->getClientScript()->registerCoreScript("jquery");
 Yii::app()->getClientScript()->registerScriptFile("/js/highlight.pack.js");
 ?>
 	<script>
-		hljs.initHighlightingOnLoad();
+		$().ready(function () {
+			hljs.initHighlightingOnLoad();
+		});
 	</script>
 </head>
 
