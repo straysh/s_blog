@@ -37,12 +37,12 @@ class ArticleController extends FController
 	public function actionCategory()
 	{
 		$category = Yii::app()->request->getParam('category');
+		/* @var Category $category */
+		$category = Category::model()->findByName($category);
 		if(empty($category))
 		{
 			$this->render('//site/index');
 		}
-		/* @var Category $category */
-		$category = Category::model()->findByName($category);
 		$articles = Article::model()->findByCategory($category->id);
 		$this->render('catlist', array(
 				'articles' => $articles,
@@ -52,11 +52,14 @@ class ArticleController extends FController
 	
 	public function actionPage()
 	{
-		$category = Yii::app()->request->getParam('category');
 		$id = Yii::app()->request->getParam('id');
-		$model = Article::model()->findByPk($id);
+		$article = Article::model()->findByPk($id);
+		if(empty($article))
+		{
+			$this->render('//site/index');
+		}
 		$this->render('page', array(
-			'model' => $model,
+			'article' => $article,
 			));
 	}
 }

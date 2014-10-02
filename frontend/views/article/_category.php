@@ -23,7 +23,6 @@ foreach($data as $date => $items)
 }
 
 $str = implode('', $str);
-//var_dump($str);exit;
 $parseDown = new Parsedown();
 $content = $parseDown->text($str);
 echo "<content>{$content}</content>";

@@ -22,8 +22,9 @@ return array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
 			'rules'=>array(
+				'article/<id:\d+>/' => '/article/page',
 				'article/<category:\w+>/' => '/article/category',
-				'<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
+				'<controller:\w+>/<action:[a-zA-Z]+>/*'=>'<controller>/<action>',
 			),
 		),
 		'cache'=>array(

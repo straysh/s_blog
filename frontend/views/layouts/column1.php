@@ -11,7 +11,6 @@
 	$requestPath = strtolower(trim($controller->id, '/')).'/'.strtolower(trim($action->id, '/'));
 	if(!in_array($requestPath, array('site/index', 'site/error', 'profile/index')))
 	{
-		Yii::app()->getClientScript()->registerScriptFile('/js/jquery.mousewheel.js', CClientScript::POS_HEAD);
 		echo '<div id="disqus_thread"></div>';
 	}
 	?>
@@ -62,7 +61,5 @@
         	<span>Copyright © 2012 - 2013 Straysh. All Rights Reserved</span>
 		</div>
 	</footer>
-<script type="text/javascript" src="/js/setup.js"></script>
-<script type="text/javascript" src="/js/mywiki.js"></script>
 </div>
 <?php $this->endContent(); ?>
