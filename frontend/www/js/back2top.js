@@ -1,4 +1,4 @@
-define(function(){
+define('jquery', function($){
     var back2top;
     var config;
     var $el;
@@ -11,7 +11,7 @@ define(function(){
                 ScrollStart();
                 ScrollDone();
             });
-        },
+        }
     };
 
     function run(){
