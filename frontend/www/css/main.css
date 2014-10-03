@@ -1,9 +1,16 @@
 @CHARSET "UTF-8";
 @import "reset.css";
 @import "all.css";
+@import "highlight/monokai_sublime.css";
 
 body {
     background: url(/images/layout/it-line2.jpg)
+}
+
+nav, footer{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 a.btm_link {

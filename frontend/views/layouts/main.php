@@ -5,9 +5,10 @@
 <meta name="description" content="PHP学习和交流，以及日常笔记">
 <meta name="robots" content="index,follow,archive">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/highlight/monokai_sublime.css">
-<script data-main="/js/main" src="/js/require.js"></script>
+<?php
+Yii::app()->clientScript->registerCssFile('/css/main'.(YII_DEBUG?'':'_min').'.css');
+Yii::app()->clientScript->registerScriptFile('/js/require.js', NULL, array('data-main' => '/js/main'.(YII_DEBUG?'':'_min')));
+?>
 <title>Straysh's Blog</title>
 <link rel="icon" href="/images/favicon.ico" >
 </head>
