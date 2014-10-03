@@ -41,7 +41,7 @@ class ArticleController extends FController
 		$category = Category::model()->findByName($category);
 		if(empty($category))
 		{
-			$this->render('//site/index');
+			$this->redirect('/site/index');
 		}
 		$articles = Article::model()->findByCategory($category->id);
 		$this->render('catlist', array(
@@ -56,7 +56,7 @@ class ArticleController extends FController
 		$article = Article::model()->findByPk($id);
 		if(empty($article))
 		{
-			$this->render('//site/index');
+			$this->redirect('/site/index');
 		}
 		$this->render('page', array(
 			'article' => $article,
