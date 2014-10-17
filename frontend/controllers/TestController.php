@@ -21,6 +21,11 @@ class TestController extends FController
 	{
 		$this->render('lifemenu');
 	}
+
+	public function actionJquerytest()
+	{
+		$this->render('jquerytest');
+	}
 	
 	public function actionCaptchagoogle()
 	{

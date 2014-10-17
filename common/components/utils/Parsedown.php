@@ -16,6 +16,7 @@
 class Parsedown
 {
 	private $_highlight_prefix = 'language-';
+	private $lineno = 0;
     #
     # Philosophy
 
@@ -125,7 +126,7 @@ class Parsedown
     {
         $CurrentBlock = null;
 
-        foreach ($lines as $line)
+        foreach ($lines as $this->lineno => $line)
         {
             if (chop($line) === '')
             {
@@ -336,7 +337,7 @@ class Parsedown
 
             $Block['element']['text']['text'] .= "\n";
 
-            $text = substr($Line['body'], 4);
+            $text = $Line['body'];//substr($Line['body'], 4);
 
             $Block['element']['text']['text'] .= $text;
 
@@ -525,7 +526,7 @@ class Parsedown
 
         if ( ! isset($Block['interrupted']))
         {
-            $text = preg_replace('/^[ ]{0,4}/', '', $Line['body']);
+            $text = $Line['body'];//preg_replace('/^[ ]{0,4}/', '', $Line['body']);
 
             $Block['li']['text'] []= $text;
 
@@ -536,7 +537,7 @@ class Parsedown
         {
             $Block['li']['text'] []= '';
 
-            $text = preg_replace('/^[ ]{0,4}/', '', $Line['body']);
+            $text = $Line['body'];//preg_replace('/^[ ]{0,4}/', '', $Line['body']);
 
             $Block['li']['text'] []= $text;
 
@@ -1384,6 +1385,11 @@ class Parsedown
 
         return $markup;
     }
+
+	private function replaceTabWith4Spaces($text)
+	{
+		return str_replace("\t", str_pad(' ', 4), $text);
+	}
 
     #
     # Fields
