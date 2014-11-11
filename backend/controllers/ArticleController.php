@@ -158,7 +158,11 @@ class ArticleController extends BController
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
-	 * @param integer the ID of the model to be loaded
+	 *
+	 * @param integer $id the ID of the model to be loaded
+	 *
+	 * @throws CHttpException
+	 * @return \Article
 	 */
 	public function loadModel($id)
 	{
@@ -180,9 +184,12 @@ class ArticleController extends BController
 			Yii::app()->end();
 		}
 	}
-	
+
 	/**
 	 * 校验article content内容
+	 *
+	 * @param $content
+	 *
 	 * @return bool 通过校验返回TRUE；失败则返回FALSE
 	 *
 	 * @author  : Straysh / 2013-9-29

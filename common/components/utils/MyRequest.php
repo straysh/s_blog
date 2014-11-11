@@ -20,4 +20,10 @@ class MyRequest
 // 		return Yii::app()->params[$base].Yii::app()->createUrl($route, $params, $ampersand);
 		return preg_replace('#^http://admin.#','http://www.', Yii::app()->request->hostinfo.Yii::app()->createUrl($route, $params, $ampersand));
 	}
+
+	public static function preview($id)
+	{
+		$host = preg_replace('#^http://admin.#','http://www.', Yii::app()->request->hostinfo);
+		return "{$host}/article/{$id}";
+	}
 }

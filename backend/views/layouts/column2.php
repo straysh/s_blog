@@ -1,8 +1,7 @@
 <?php
 $this->beginContent('//layouts/main');
 ?>
-<div class="span-4">
-<div id="left-sidebar" style="-moz-user-select:-moz-none; -webkit-user-select:none;" onselectstart="return false;">
+<nav id="left-sidebar" style="-moz-user-select:-moz-none; -webkit-user-select:none;" onselectstart="return false;">
 <?php
 $this->beginWidget('zii.widgets.CPortlet', array('title' => '操作'));
 	$data = array(
@@ -11,7 +10,6 @@ $this->beginWidget('zii.widgets.CPortlet', array('title' => '操作'));
 			"text" =>'文章管理', 
 			"classes" => "important", 
 			"children" => array(
-				'indexAtkl' => array('text' => CHtml::link('浏览文章', array('article/index'))),
 				'atkladmin' => array('text' => CHtml::link('管理文章', array('article/admin'))),
 				'createAtkl' => array('text' => CHtml::link('新增文章', array('article/create'))),
 			)
@@ -21,7 +19,6 @@ $this->beginWidget('zii.widgets.CPortlet', array('title' => '操作'));
 			"text" =>'笔记管理', 
 			"classes" => "important", 
 			"children" => array(
-				'indexNote' => array('text' => CHtml::link('浏览笔记', array('note/index'))),
 				'adminNote' => array('text' => CHtml::link('管理笔记', array('note/admin'))),
 				'createNote' => array('text' => CHtml::link('新增笔记', array('note/create'))),
 			)
@@ -47,16 +44,15 @@ $this->beginWidget('zii.widgets.CPortlet', array('title' => '操作'));
 	
 		$this->endWidget();
 	?>	
-</div>
-</div>
+</nav>
 
-<div class="span-19 last">
+<content>
 	<div id="content" style="padding-left: 0px; padding-right: 0px;">
-				<?php
-				echo $content;
-				?>
+		<?php
+		echo $content;
+		?>
 	</div>
-<!-- content --></div>
+</content>
 <?php
 $this->endContent();
 ?>

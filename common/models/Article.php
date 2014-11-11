@@ -104,6 +104,7 @@ class Article extends BaseAR
 		$criteria->compare('c_time',$this->c_time,true);
 		$criteria->compare('m_time',$this->m_time,true);
 
+		$criteria->order = 'id DESC';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

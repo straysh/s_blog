@@ -1,60 +1,35 @@
+<h1>Manage Articles</h1>
+
 <?php
 /* @var $this ArticleController */
 /* @var $model Article */
 
-// $this->breadcrumbs=array(
-// 	'Articles'=>array('index'),
-// 	'Manage',
-// );
-
-// $this->menu=array(
-// 	array('label'=>'List Article', 'url'=>array('index')),
-// 	array('label'=>'Create Article', 'url'=>array('create')),
-// );
-
-Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-	$('.search-form').toggle();
-	return false;
-});
-$('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('article-grid', {
-		data: $(this).serialize()
-	});
-	return false;
-});
-");
-?>
-
-<h1>Manage Articles</h1>
-
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
-
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+$this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'article-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
-		'tid',
-		'title',
+		array(
+			'name' => 'id',
+			'type' => 'raw',
+			'value' => 'Chtml::link($data->id, array("view", "id"=>$data->id))',
+			'htmlOptions' => array('width'=>'2%')
+		),
+		array(
+			'name' => 'nav_id',
+			'value' => 'Category::model()->navName($data->nav_id, false)',
+			'htmlOptions' => array('width'=>'5%')
+		),
+		array(
+			'name' => 'title',
+			'type' => 'raw',
+			'value' => 'Chtml::link($data->title, MyRequest::preview($data->id), array("target"=>"_blank"))',
+			'htmlOptions' => array('width'=>'30%')
+		),
 		'author',
-		'nav_id',
+		'tid',
 		'hits',
-		/*
-		'c_time',
-		'm_time',
-		*/
+		'm_time:date',
 		array(
 			'class'=>'CButtonColumn',
 		),

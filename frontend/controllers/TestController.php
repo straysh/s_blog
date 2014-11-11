@@ -62,4 +62,15 @@ class TestController extends FController
 		require_once(Yii::app()->params['quickcaptcha']['class']);
 		exit;
 	}
+
+	public function actionIndiamart()
+	{
+		$q = $_GET['q'];
+		if(empty($q)) return false;
+		$url = "http://trade.indiamart.com/buyersearch.mp?ss={$q}";
+//		$html = file_get_contents($url);
+		$html = file_get_contents(Yii::getPathOfAlias('frontend.runtime').'/test.txt');
+		var_dump($html);
+
+	}
 }

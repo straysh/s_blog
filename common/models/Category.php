@@ -124,17 +124,22 @@ class Category extends BaseAR
 
 	/**
 	 * 按主键查导航标签英文名
-	 * @param int $id self::id,primary key
+	 *
+	 * @param int  $id self::id,primary key
+	 * @param bool $lowercase
+	 *
 	 * @return string self::nav_name. empty string if not found;
 	 *
 	 * @author  : Straysh / 2013-9-27
 	 * @version : 1.0
 	 */
-	public function navName($id)
+	public function navName($id, $lowercase=true)
 	{
 		/* @var Category $data */
 		$data = $this->findByPk($id);
-		return $data ? strtolower($data->nav_name) : '';
+		if(empty($data))
+			return '';
+		return $lowercase ? strtolower($data->nav_name) : $data->nav_name;
 	}
 
 	/**

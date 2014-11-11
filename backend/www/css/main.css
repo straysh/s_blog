@@ -2,8 +2,8 @@ body
 {
 	margin: 0;
 	padding: 0;
-	color: #555;
-	font: normal 10pt Arial,Helvetica,sans-serif;
+	color: #333;
+	font: normal 14px Arial,Helvetica,sans-serif;
 	background: #EFEFEF;
 }
 
@@ -226,4 +226,18 @@ div.search-form
 .operations li a:hover
 {
 	background: #80CFFF;
+}
+
+.container{
+    width: 100% !important;
+}
+
+nav{
+    float: left;
+    width: 10% !important;
+}
+
+content{
+    float: left;
+    width: 88% !important;
 }

@@ -22,6 +22,7 @@
 	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::link('预览', MyRequest::preview($model->id), array('target'=>'_blank')); ?>
 	</div>
 	
 	<div class="row">
