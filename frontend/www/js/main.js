@@ -13,6 +13,8 @@ function($, hljs, back2top, disqus, jstestModule){
     });
     hljs.initHighlightingOnLoad();
     back2top();
-    disqus();
+    setTimeout(function(){
+        disqus();
+    }, 3000);
     jstestModule();
 });
