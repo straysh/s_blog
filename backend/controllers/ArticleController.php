@@ -74,7 +74,7 @@ class ArticleController extends BController
 			{
 				$articleContent = new ArticleContent();
 				$articleContent->attributes = $_POST['ArticleContent'];
-				$articleContent->pid = $model->id;
+				$articleContent->article_id = $model->id;
 				if($articleContent->content && $articleContent->save())
 					$this->redirect(array('view','id'=>$model->id));
 			}
@@ -102,9 +102,9 @@ class ArticleController extends BController
 			$model->attributes=$_POST['Article'];
 			$basicSave = $model->save();
 			$content = $_POST['ArticleContent']['content'];
-			$pid = $model->id;
+			$articleid = $model->id;
 			$contentSave = $this->validateArticleContent($content)
-							? ArticleContent::model()->updateAll(array('content'=>$content), 'pid=:pid', array(':pid'=>$pid))
+							? ArticleContent::model()->updateAll(array('content'=>$content), 'article_id=:article_id', array(':article_id'=>$articleid))
 							: false;
 			if($contentSave || $basicSave)
 				$this->redirect(array('view','id'=>$model->id));
