@@ -6,8 +6,8 @@ require.config({
     }
 });
 
-require(['jquery', 'libs/highlight.pack', 'back2top', 'jstest', 'disqus'],
-function($, hljs, disqus, back2top, jstestModule){
+require(['jquery', 'libs/highlight.pack', 'back2top', 'disqus', 'jstest' ],
+function($, hljs, back2top, disqus, jstestModule){
     hljs.configure({
         tabReplace: '    '
     });

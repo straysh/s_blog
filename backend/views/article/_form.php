@@ -18,13 +18,13 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-	
-	
+
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 		<?php echo CHtml::link('预览', MyRequest::preview($model->id), array('target'=>'_blank')); ?>
 	</div>
-	
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'nav_id'); ?>
 		<?php echo $form->dropDownList($model,'nav_id', Category::model()->dropDownList(), array('prompt'=>'--请选择--')); ?>
@@ -51,11 +51,11 @@
 
 	<div class="row">
 		<a id="load_article">load article</a>
-		<?php if(isset($model->content)):?>
-			<?php echo $form->labelEx($model->content,'content'); ?>
-			<?php $model->content->content = htmlspecialchars_decode($model->content->content); ?>
-			<?php echo $form->textArea($model->content,'content', array('id'=>'article_content', 'rows'=>50, 'style'=>'width:100%;')); ?>
-			<?php echo $form->error($model->content,'content'); ?>
+		<?php if(isset($model->atkl_content)):?>
+			<?php echo $form->labelEx($model->atkl_content,'content'); ?>
+			<?php $model->atkl_content->content = htmlspecialchars_decode($model->atkl_content->content); ?>
+			<?php echo $form->textArea($model->atkl_content,'content', array('id'=>'article_content', 'rows'=>50, 'style'=>'width:100%;')); ?>
+			<?php echo $form->error($model->atkl_content,'content'); ?>
 		<?php ELSE:?>
 			<?php echo CHtml::textArea('ArticleContent[content]','', array('id'=>'article_content', 'rows'=>50, 'style'=>'width:100%;')); ?>
 		<?php ENDIF;?>

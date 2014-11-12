@@ -16,6 +16,7 @@
  */
 class Article extends BaseAR
 {
+	public $content;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -71,6 +72,7 @@ class Article extends BaseAR
 			'nav_id' => '分组',
 			'parser' => '文档解析器',
 			'hits' => '浏览',
+			'content' => '内容',
 			'c_time' => '创建时间',
 			'm_time' => '最后修改',
 		);

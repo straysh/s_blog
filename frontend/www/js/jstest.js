@@ -12,5 +12,7 @@ define(['jquery', 'imagesLoaded'], function($){
         });
     }
 
-    return Jstest;
+    return function(){
+        return Jstest;
+    };
 });

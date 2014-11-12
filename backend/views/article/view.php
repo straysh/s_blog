@@ -17,7 +17,7 @@
 ?>
 
 <h1>View Article #<?php echo $model->id; ?></h1>
-<?php echo CHtml::link('预览', MyRequest::get_singleton()->createUrl('/article/page', array('category'=>Category::model()->navName($model->nav_id), 'id'=>$model->id)))?>
+<?php echo CHtml::link('预览', MyRequest::preview($model->id), array('target' => '_blank') );?>
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
