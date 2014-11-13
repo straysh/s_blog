@@ -158,4 +158,22 @@ class Category extends BaseAR
 
 		return $result;
 	}
+
+	public function incTotal($navid, $inc = TRUE)
+	{
+		$inc = $inc ? '+' : '-';
+		$data['total'] = new CDbExpression("total {$inc} 1");
+		$cretiria['condition'] = 'id= :id';
+		$cretiria['params'] = array(':id' => $navid);
+		if(!$this->updateAll($data, $cretiria))
+		{
+			if(YII_DEBUG)
+			{
+				var_dump(__METHOD__.' #LINE '.__LINE__);
+				var_dump($this->getErrors());
+				exit;
+			}
+			throw new Exception('[DB]set category total fail ');
+		}
+	}
 }

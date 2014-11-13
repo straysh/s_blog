@@ -11,6 +11,7 @@
  * @property integer $nav_id
  * @property string $parser
  * @property string $hits
+ * @property string $state
  * @property string $c_time
  * @property string $m_time
  */
@@ -72,6 +73,7 @@ class Article extends BaseAR
 			'nav_id' => '分组',
 			'parser' => '文档解析器',
 			'hits' => '浏览',
+			'state' => '状态',
 			'content' => '内容',
 			'c_time' => '创建时间',
 			'm_time' => '最后修改',
@@ -103,6 +105,7 @@ class Article extends BaseAR
 		$criteria->compare('nav_id',$this->nav_id);
 		$criteria->compare('parser',$this->parser,true);
 		$criteria->compare('hits',$this->hits,true);
+		$criteria->compare('state', 1 );
 		$criteria->compare('c_time',$this->c_time,true);
 		$criteria->compare('m_time',$this->m_time,true);
 
@@ -110,6 +113,27 @@ class Article extends BaseAR
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	public function dustbin()
+	{
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id,true);
+		$criteria->compare('tid',$this->tid,true);
+		$criteria->compare('title',$this->title,true);
+		$criteria->compare('author',$this->author,true);
+		$criteria->compare('nav_id',$this->nav_id);
+		$criteria->compare('parser',$this->parser,true);
+		$criteria->compare('hits',$this->hits,true);
+		$criteria->compare('state', 0 );
+		$criteria->compare('c_time',$this->c_time,true);
+		$criteria->compare('m_time',$this->m_time,true);
+
+		$criteria->order = 'id DESC';
+		return new CActiveDataProvider($this, array(
+				'criteria'=>$criteria,
+			));
 	}
 
 	/**

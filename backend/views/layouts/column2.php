@@ -12,6 +12,7 @@ $this->beginWidget('zii.widgets.CPortlet', array('title' => '操作'));
 			"children" => array(
 				'atkladmin' => array('text' => CHtml::link('管理文章', array('article/admin'))),
 				'createAtkl' => array('text' => CHtml::link('新增文章', array('article/create'))),
+				'restoreAtkl' => array('text' => CHtml::link('垃圾箱', array('article/dustbin'))),
 			)
 		),
 		'note' => array(

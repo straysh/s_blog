@@ -36,7 +36,7 @@ class ArticleController extends BController
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin', 'dustbin', 'delete', 'restore'),
 				'roles'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -69,14 +69,29 @@ class ArticleController extends BController
 
 		if(isset($_POST['Article']))
 		{
-			$model->attributes=$_POST['Article'];
-			if($model->save())
+			$transaction = Yii::app()->db->beginTransaction();
+			try
 			{
-				$articleContent = new ArticleContent();
-				$articleContent->attributes = $_POST['ArticleContent'];
-				$articleContent->article_id = $model->id;
-				if($articleContent->content && $articleContent->save())
-					$this->redirect(array('view','id'=>$model->id));
+				$model->attributes=$_POST['Article'];
+				if($model->save())
+				{
+					$articleContent = new ArticleContent();
+					$articleContent->attributes = $_POST['ArticleContent'];
+					$articleContent->article_id = $model->id;
+					if($articleContent->content && $articleContent->save())
+					{
+						Category::model()->incTotal($model->nav_id);
+						$transaction->commit();
+						$this->redirect(array('view', 'id'=>$model->id));
+					}
+				}
+			}catch(Exception $e)
+			{
+				$transaction->rollback();
+				if(YII_DEBUG)
+				{
+					var_dump($e->getMessage());
+				}
 			}
 		}
 
@@ -122,7 +137,10 @@ class ArticleController extends BController
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		$model = $this->loadModel($id);
+		$model->state = 0;
+		$model->save();
+		Category::model()->incTotal($model->nav_id, false);
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
@@ -153,6 +171,33 @@ class ArticleController extends BController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	}
+
+	/**
+	 * 恢复被删除的文章
+	 */
+	public function actionDustbin()
+	{
+		$model=new Article('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Article']))
+			$model->attributes=$_GET['Article'];
+
+		$this->render('dustbin',array(
+				'model'=>$model,
+			));
+	}
+
+	public function actionRestore($id)
+	{
+		$model = $this->loadModel($id);
+		$model->state = 1;
+		$model->save();
+		Category::model()->incTotal($model->nav_id);
+
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**

@@ -6,7 +6,7 @@
 
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'article-grid',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$model->dustbin(),
 	'filter'=>$model,
 	'columns'=>array(
 		array(
@@ -33,6 +33,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'm_time:date',
 		array(
 			'class'=>'CButtonColumn',
+			'template' => '{delete}',
+			'deleteButtonLabel' => 'Restore',
+			'deleteButtonImageUrl' => '/images/restore.jpg',
+			'deleteButtonUrl' => 'Yii::app()->controller->createUrl("restore",array("id"=>$data->primaryKey))',
+			'deleteConfirmation' => 'Are you sure you want to restore this item?'
 		),
 	),
 )); ?>
