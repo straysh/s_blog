@@ -112,6 +112,9 @@ class Article extends BaseAR
 		$criteria->order = 'id DESC';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'pagination' => array(
+				'pageSize' => 20
+			)
 		));
 	}
 
@@ -133,6 +136,9 @@ class Article extends BaseAR
 		$criteria->order = 'id DESC';
 		return new CActiveDataProvider($this, array(
 				'criteria'=>$criteria,
+				'pagination' => array(
+					'pageSize' => 20
+				)
 			));
 	}
 
