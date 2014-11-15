@@ -11,6 +11,15 @@ Yii::app()->clientScript->registerScriptFile('/js/require.js', NULL, array('data
 ?>
 <title>Straysh's Blog</title>
 <link rel="icon" href="/images/favicon.ico" >
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?05a9120284c9d52abbb86d83442f5413";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
 </head>
 
 <body>
