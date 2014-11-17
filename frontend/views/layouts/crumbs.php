@@ -4,7 +4,7 @@ $categoryUrl = $this->createUrl("/article/{$category->nav_name}");
 $crumbs = <<<HTML
 __Straysh的个人博客__ » [首页][1] » [{$category->nav_name}][2]
 
-[1]:http://www.straysh.com "Straysh的个人博客"
+[1]:http://www.straysh.info "Straysh的个人博客"
 [2]:{$categoryUrl} "{$category->nav_name}"
 
 <form action="/search" class="header-search pull-left hidden-sm hidden-xs" onclick="alert('not implemented yet!');return false;">
