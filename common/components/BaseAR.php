@@ -12,7 +12,7 @@ class BaseAR extends CActiveRecord
 		{
 			if($this->hasAttribute('m_time'))
 				$this->m_time = time();
-			if($this->hasAttribute('c_time'))
+			if($this->isNewRecord && $this->hasAttribute('c_time'))
 				$this->c_time = time();
 			return true;
 		}else{
