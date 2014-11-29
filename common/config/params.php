@@ -17,7 +17,7 @@ $main = array(
 			'LIB'           => '/data0/library/php/thirdLogin/google-api-php-client-read-only/src',
 			'CLIENT_ID'     => '147600874787-9i1jo2iaju2kd2v292s6081n53ikq3n3.apps.googleusercontent.com',
 			'CLIENT_SECRET' => 'DZP7K-4hd4UUsswokn9ynOGH',
-			'REDIRECTURI'   => 'http://www.straysh.info/test/googlelogindemo',
+			'REDIRECTURI'   => 'http://www.straysh.info/test/googlelogindemostep2',
 		)
 	),
 
