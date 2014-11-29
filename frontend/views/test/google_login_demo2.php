@@ -36,7 +36,7 @@ require_once ($config['LIB'].'/contrib/Google_Oauth2Service.php');
 $client = new Google_Client();
 $client->setApplicationName('appTest Google APIs');
 $client->setClientId($config['CLIENT_ID']);
-$client->setClientId($config['CLIENT_SECRET']);
+$client->setClientSecret($config['CLIENT_SECRET']);
 
 $client->authenticate($_GET['code']);
 $accessToken = $client->getAccessToken();
