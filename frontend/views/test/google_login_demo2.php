@@ -37,6 +37,7 @@ $client = new Google_Client();
 $client->setApplicationName('appTest Google APIs');
 $client->setClientId($config['CLIENT_ID']);
 $client->setClientSecret($config['CLIENT_SECRET']);
+$client->setRedirectUri($config['REDIRECTURI']);
 
 $client->authenticate($_GET['code']);
 $accessToken = $client->getAccessToken();
