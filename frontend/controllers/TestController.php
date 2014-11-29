@@ -67,7 +67,7 @@ class TestController extends FController
 	{
 		$this->render('google_login_demo');
 	}
-	public function actionGooglelogindemo2()
+	public function actionGooglelogindemostep2()
 	{
 		$this->render('google_login_demo2');
 	}
