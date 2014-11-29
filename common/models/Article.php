@@ -165,7 +165,7 @@ class Article extends BaseAR
 		$result = $this->findAll(array(
 				'condition' => 'nav_id=:navid',
 				'params' => array(':navid' => $categoryid),
-				'order' => 'c_time ASC'
+				'order' => 'c_time DESC'
 			));
 
 		return $result;
