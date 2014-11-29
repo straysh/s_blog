@@ -63,14 +63,13 @@ class TestController extends FController
 		exit;
 	}
 
-	public function actionIndiamart()
+	public function actionGooglelogindemo()
 	{
-		$q = $_GET['q'];
-		if(empty($q)) return false;
-		$url = "http://trade.indiamart.com/buyersearch.mp?ss={$q}";
-//		$html = file_get_contents($url);
-		$html = file_get_contents(Yii::getPathOfAlias('frontend.runtime').'/test.txt');
-		var_dump($html);
-
+		$this->render('google_login_demo');
 	}
+	public function actionGooglelogindemo2()
+	{
+		$this->render('google_login_demo2');
+	}
+	
 }

@@ -11,6 +11,16 @@ $main = array(
 	'googleD_KEY' => 'AIzaSyD9td0ItGeEhjn7puFw_33vrQhUiYkGdEA',
 	'githubA_KEY' => '743c807e51a95a47a9d7',
 	'githubS_KEY' => '9369b299ac210cfdd33888ffe03549b0f56f08b7',
+
+	'GOOGLE'        => array(
+		'WEBSERVER' => array(
+			'LIB'           => '/data0/library/php/thirdLogin/google-api-php-client-read-only/src',
+			'CLIENT_ID'     => '147600874787-9i1jo2iaju2kd2v292s6081n53ikq3n3.apps.googleusercontent.com',
+			'CLIENT_SECRET' => 'DZP7K-4hd4UUsswokn9ynOGH',
+			'REDIRECTURI'   => 'http://www.straysh.info/test/googlelogindemo',
+		)
+	),
+
 	'captcha_google' => array(
 		'class' => '/data0/library/php/captcha/recaptcha-php-1.11/recaptchalib.php',
 		'public_key' => '6LeTa-8SAAAAAMaP2zdU0_lW46wo9lODnkqXkkGG',
