@@ -40,6 +40,11 @@ $client->setClientId($config['CLIENT_SECRET']);
 
 $client->authenticate($_GET['code']);
 $accessToken = $client->getAccessToken();
-$oauth2 = new Google_Oauth2Service($client);
-$profile = $oauth2->userinfo->get();
-var_dump($profile);
+try{
+	$oauth2 = new Google_Oauth2Service($client);
+	$profile = $oauth2->userinfo->get();
+	var_dump($profile);
+}catch (Exception $e)
+{
+	var_dump($e->getMessage());
+}
