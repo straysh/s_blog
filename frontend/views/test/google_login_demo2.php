@@ -13,14 +13,23 @@ require_once (\$config['LIB'].'/Google_Client.php');
 require_once (\$config['LIB'].'/contrib/Google_Oauth2Service.php');
 
 \$client = new Google_Client();
+\$oauth2 = new Google_Oauth2Service(\$client);
 \$client->setApplicationName('appTest Google APIs');
 \$client->setClientId(\$config['CLIENT_ID']);
+\$client->setClientSecret(\$config['CLIENT_SECRET']);
+\$client->setRedirectUri(\$config['REDIRECTURI']);
 
 \$client->authenticate(\$_GET['code']);
 \$accessToken = \$client->getAccessToken();
-\$oauth2 = new Google_Oauth2Service(\$client);
-\$profile = \$oauth2->userinfo->get();
-var_dump(\$profile);
+try{
+	\$profile = \$oauth2->userinfo->get();
+	echo "<pre>";
+	var_export(\$profile);
+	echo "</pre>";
+}catch (Exception \$e)
+{
+	var_dump(\$e->getMessage());
+}
 ```
 ***
 DEMO;
@@ -44,7 +53,9 @@ $client->authenticate($_GET['code']);
 $accessToken = $client->getAccessToken();
 try{
 	$profile = $oauth2->userinfo->get();
-	var_dump($profile);
+	echo "<pre>";
+	var_export($profile);
+	echo "</pre>";
 }catch (Exception $e)
 {
 	var_dump($e->getMessage());
