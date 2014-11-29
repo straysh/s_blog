@@ -13,7 +13,7 @@ $str = [];
 foreach($data as $date => $items)
 {
 	$str[] = "#{$date}\n\n";
-	rsort($items);
+	$items = array_reverse($items);
 	foreach($items as $i => $Aarticle)
 	{
 		++$i;
